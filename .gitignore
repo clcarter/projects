@@ -4,4 +4,9 @@ tmp/*
 app/tmp/*
 app/[Cc]onfig/core.php
 app/[Cc]onfig/database.php
+app/[Cc]onfig/core.php
+app/[Cc]onfig/sharePointCypher
+app/[Cc]onfig/sharePointDom
+app/[Cc]onfig/sharePointUsr
+app/[Cc]onfig/sharePointPwd
 !empty
