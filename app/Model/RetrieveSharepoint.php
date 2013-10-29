@@ -82,7 +82,7 @@ class RetrieveSharepoint {
 
 	private function encrypt($plaintext)
 	{
-		require_once('C:\xampp\htdocs\projects\app\Config\sharePointCypher');
+		require_once($this->loginPath.'\sharePointCypher');
 		$td = mcrypt_module_open(CYPHER, '', MODE, '');
 		$iv = mcrypt_create_iv(mcrypt_enc_get_iv_size($td), MCRYPT_RAND);
 		mcrypt_generic_init($td, KEY, $iv);
@@ -93,7 +93,7 @@ class RetrieveSharepoint {
 
 	private function decrypt($crypttext)
 	{
-		require_once('C:\xampp\htdocs\projects\app\Config\sharePointCypher');
+		require_once($this->loginPath.'\sharePointCypher');
 		$crypttext = base64_decode($crypttext);
 		$plaintext = '';
 		$td        = mcrypt_module_open(CYPHER, '', MODE, '');
