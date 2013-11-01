@@ -9,6 +9,7 @@ app/[Cc]onfig/sharePointCypher
 app/[Cc]onfig/sharePointDom
 app/[Cc]onfig/sharePointUsr
 app/[Cc]onfig/sharePointPwd
-app/[Cc]onfig/RetrieveSharepoint.php
+app/[Mm]odel/RetrieveSharepoint.php
 lib/*
 !empty
+
