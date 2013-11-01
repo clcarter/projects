@@ -13,3 +13,10 @@ app/[Mm]odel/RetrieveSharepoint.php
 lib/*
 !empty
 
+/.editorconfig
+/.htaccess
+/.travis.yml
+/build.properties
+/build.xml
+/CONTRIBUTING.md
+/index.php
