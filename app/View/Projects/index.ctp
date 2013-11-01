@@ -1,7 +1,9 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <div class="projects index">
 	<h2><?php echo __('Projects'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
-	<tr>
+	<tr> 
 			<th><?php echo $this->Paginator->sort('priority'); ?></th>
 			<th><?php echo $this->Paginator->sort('requestor'); ?></th>
 			<th><?php echo $this->Paginator->sort('title'); ?></th>
@@ -14,7 +16,7 @@
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($projects as $project): ?>
-	<tr>
+	<tr onclick="viewProject(<?php print $project['Project']['id']; ?>)">
 		<td><?php echo h($project['Project']['priority']); ?>&nbsp;</td>
 		<td><?php echo h($project['Project']['requestor']); ?>&nbsp;</td>
 		<td><?php echo h($project['Project']['title']); ?>&nbsp;</td>
@@ -51,3 +53,38 @@
 		<li><?php echo $this->Html->link(__('New Attachment'), array('controller' => 'attachments', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+
+<div class="dialog" id='dialog-message'></div>
+
+<script type="text/javascript">
+	
+	function viewProject(id){
+		var width = $(window).width()*0.6;
+		$('#dialog-message').load('/projects/view/'+id).dialog({
+      modal: true,
+		width: width,
+		position:['middle', 'top'],
+      buttons: {
+        Edit: function() {
+          $( "#edit-dialog" ).dialog( {
+			modal:true,
+			buttons: {
+				Update: function() {
+					saveTask();	
+					$( this ).dialog( "close" );
+				},
+				Cancel:  function() {
+          			$( this ).dialog( "close" );
+				}
+			}
+			  
+		  });
+        },
+		Exit: function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    }).dialog("open");
+}
+
+</script>

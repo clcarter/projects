@@ -3,8 +3,7 @@
 App::uses('UrlLinker','Model');
 $urlMaker = new UrlLinker();
 ?>
-<h2><?php echo __('Project'); ?></h2>
-	<dl>
+	<dl style="width:100%">
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
 			<?php echo h($project['Project']['id']); ?>
@@ -80,19 +79,19 @@ $urlMaker = new UrlLinker();
 		</dd>
 	</dl>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+<!--div class="actions">
+	<h3><?php /* echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Project'), array('action' => 'edit', $project['Project']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Project'), array('action' => 'delete', $project['Project']['id']), null, __('Are you sure you want to delete # %s?', $project['Project']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Projects'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Project'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Attachments'), array('controller' => 'attachments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Attachment'), array('controller' => 'attachments', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Attachment'), array('controller' => 'attachments', 'action' => 'add'));*/ ?> </li>
 	</ul>
-</div>
+</div-->
 <div class="related">
-	<h3><?php echo __('Related Attachments'); ?></h3>
+	<h3><?php echo __('Attachments'); ?></h3>
 	<?php if (!empty($project['Attachment'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
