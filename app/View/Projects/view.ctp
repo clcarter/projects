@@ -4,11 +4,6 @@ App::uses('UrlLinker','Model');
 $urlMaker = new UrlLinker();
 ?>
 	<dl style="width:100%">
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($project['Project']['id']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Requestor'); ?></dt>
 		<dd>
 			<?php echo h($project['Project']['requestor']); ?>

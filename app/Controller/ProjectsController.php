@@ -48,10 +48,13 @@ class ProjectsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$rsInstance = new RetrieveSharepoint($this->request->data['Project']['url']);
-			$data = $rsInstance->getData();
-			$project = array('Project' => $data['Project']);
-			$attachments = $data['Attachments'];
+			$project = $this->request->data;
+			if(!empty($this->request->data['Project']['url'])) {
+				$rsInstance = new RetrieveSharepoint($this->request->data['Project']['url']);
+				$data = $rsInstance->getData();
+				$project = array('Project' => $data['Project']);
+				$attachments = $data['Attachments'];
+			}
 			$this->Project->create();
 			if ($saved = $this->Project->save($project)) {
 				$attachmentsSaved = !empty($attachments) ? $this->saveAttachments($attachments, $saved['Project']['id']):true;

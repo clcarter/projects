@@ -1,5 +1,6 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<?php 
+echo $this->element('scripts');
+echo $this->element('header'); ?>
 <div class="projects index">
 	<h2><?php echo __('Projects'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -48,7 +49,7 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Project'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->tag('a','New Project', array('href' => '#','onclick' => "newProject()")); ?></li>
 		<li><?php echo $this->Html->link(__('List Attachments'), array('controller' => 'attachments', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Attachment'), array('controller' => 'attachments', 'action' => 'add')); ?> </li>
 	</ul>
@@ -66,25 +67,21 @@
 		position:['middle', 'top'],
       buttons: {
         Edit: function() {
-          $( "#edit-dialog" ).dialog( {
-			modal:true,
-			buttons: {
-				Update: function() {
-					saveTask();	
-					$( this ).dialog( "close" );
-				},
-				Cancel:  function() {
-          			$( this ).dialog( "close" );
-				}
-			}
-			  
-		  });
+          $('#dialog-message').load('/projects/edit/'+id);
         },
 		Exit: function() {
           $( this ).dialog( "close" );
         }
       }
     }).dialog("open");
+}
+
+function newProject(){
+	var width = $(window).width()*0.6;
+	$('#dialog-message').load('/projects/add').dialog({
+		width: width,
+		position:['middle', 'top']
+	}).dialog("open");
 }
 
 </script>
